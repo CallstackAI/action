@@ -1,5 +1,8 @@
 name: 'Callstack.ai Reviewer'
 description: 'Run Callstack.ai reviewer'
+branding:
+  icon: 'play'
+  color: 'gray-dark'
 inputs:
   config:
     description: 'Config for reviewer'
