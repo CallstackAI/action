@@ -6,7 +6,7 @@ This action performs an automated review on your pull requests.
 # Usage
 1. Create account at [https://app.callstack.ai](https://app.callstack.ai).
 2. Install Callstack.ai GitHub app to your repository (follow setup guide in Callstack.ai platform).
-3. Create `.github/workflows/callstack-reviewer.ym` workflow file to the main branch.
+3. Create `.github/workflows/callstack-reviewer.yml` workflow file to the main branch.
 
 ```yml filename=".github/workflows/callstack-reviewer.ym"
 name: Callstackai PR Review
