@@ -1,7 +1,7 @@
 # Callstack.ai Action
 This action performs an automated review on your pull requests.
 
-[Callstack.ai](https://app.callstack.ai) account is required for this action to work.
+[Callstack.ai](https://app.callstack.ai) account and Callstack.ai GitHub app is required for this action to work.
 
 # Usage
 1. Create account at [https://app.callstack.ai](https://app.callstack.ai).
