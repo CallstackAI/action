@@ -46,6 +46,8 @@ You can configure reviewer by adding `.callstack.yml` config file to the main br
 
 ```yml filename=".callstack.yml"
 pr_review:
+  # Default: true
+  auto_run: true
   modules:
     # Automatically create a description summarizing the changes in pull request. 
     description:
