@@ -13,7 +13,7 @@ inputs:
   openai_key:
     description: 'OpenAI key'
     required: false
-    default: '<empty>'
+    default: ''
 
 runs:
   using: composite
@@ -25,11 +25,11 @@ runs:
 
     - name: Run reviewer
       uses: addnab/docker-run-action@v3
+      env:
+        OPENAI_KEY: ${{ inputs.openai_key }}
       with:
         image: callstackai/cal:latest
         options: -v ${{ github.workspace }}:/code
-        env:
-          OPENAI_KEY: ${{ inputs.openai_key != '<empty>' || '' }}
         run: |
           /reviewer \
           --dir /code \
