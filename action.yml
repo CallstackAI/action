@@ -13,7 +13,7 @@ inputs:
   openai_key:
     description: 'OpenAI key'
     required: false
-    default: ''
+    default: 'empty'
 
 runs:
   using: composite
