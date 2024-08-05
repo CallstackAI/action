@@ -9,7 +9,7 @@ This action performs an automated review on your pull requests.
 3. Create `.github/workflows/callstack-reviewer.yml` workflow file to the main branch.
 
 ```yml filename=".github/workflows/callstack-reviewer.ym"
-name: Callstackai PR Review
+name: Callstack.ai PR Review
 
 on:
   workflow_dispatch:
