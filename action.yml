@@ -13,7 +13,7 @@ inputs:
   openai_key:
     description: 'OpenAI key'
     required: false
-    default: 'empty'
+    default: '<empty>'
 
 runs:
   using: composite
@@ -29,7 +29,7 @@ runs:
         image: callstackai/cal:latest
         options: -v ${{ github.workspace }}:/code
         env:
-          OPENAI_KEY: ${{ inputs.openai_key }}
+          OPENAI_KEY: ${{ inputs.openai_key != '<empty>' || '' }}
         run: |
           /reviewer \
           --dir /code \
