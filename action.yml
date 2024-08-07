@@ -14,6 +14,10 @@ inputs:
     description: 'OpenAI key'
     required: false
     default: ''
+  export:
+    description: 'Save logs to artifact'
+    required: false
+    default: false
 
 runs:
   using: composite
@@ -36,3 +40,4 @@ runs:
           --id ${{ github.run_id }} \
           --token ${{ github.token }} \
           --config "${{ inputs.config }}"
+          ${{ inputs.export && '--export' || null }}
