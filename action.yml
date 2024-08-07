@@ -41,3 +41,10 @@ runs:
           --token ${{ github.token }} \
           --config "${{ inputs.config }}"
           ${{ inputs.export && '--export' || null }}
+          
+    - name: Export logs
+        uses: actions/upload-artifact@v4
+        if: ${{ inputs.export }}
+        with:
+          name: chat-logs
+          path: chats.json
