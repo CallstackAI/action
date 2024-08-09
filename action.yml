@@ -46,4 +46,4 @@ runs:
       if: ${{ inputs.export }}
       with:
         name: chat-logs
-        path: ${{ github.workspace }}/chats.json
+        path: /code/chats.json
