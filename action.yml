@@ -17,7 +17,6 @@ inputs:
   export:
     description: 'Save logs to artifact'
     required: false
-    default: false
 
 runs:
   using: composite
