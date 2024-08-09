@@ -27,6 +27,7 @@ runs:
         ref: ${{ inputs.head }}
 
     - name: Run reviewer without export
+      if: ${{ !inputs.export }}
       uses: addnab/docker-run-action@v3
       env:
         OPENAI_KEY: ${{ inputs.openai_key }}
@@ -41,6 +42,7 @@ runs:
           --config "${{ inputs.config }}"
 
     - name: Run reviewer with export
+      if: ${{ inputs.export }}
       uses: addnab/docker-run-action@v3
       env:
         OPENAI_KEY: ${{ inputs.openai_key }}
