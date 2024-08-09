@@ -38,7 +38,7 @@ runs:
           --dir /code \
           --id ${{ github.run_id }} \
           --token ${{ github.token }} \
-          --config "${{ inputs.config }}" ${{ inputs.export && '--export' || null }}
+          --config "${{ inputs.config }}" ${{ inputs.export && format('--export {}', inputs.export) || null }} 
           
     - name: Export logs
       uses: actions/upload-artifact@v4
