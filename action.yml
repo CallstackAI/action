@@ -57,9 +57,16 @@ runs:
           --config "${{ inputs.config }}" \
           --export ${{ inputs.export }}
           
-    - name: Export logs
+    - name: Export Chat logs
       uses: actions/upload-artifact@v4
       if: ${{ inputs.export }}
       with:
         name: chat-logs
         path: ${{ github.workspace }}/chats.json
+
+    - name: Export logs
+      uses: actions/upload-artifact@v4
+      if: ${{ inputs.export }}
+      with:
+        name: chat-logs
+        path: ${{ github.workspace }}/output.log
