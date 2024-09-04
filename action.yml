@@ -35,6 +35,7 @@ runs:
         ref: ${{ inputs.head }}
 
     - name: Set Docker image based on channel and tag
+      shell: bash
       run: |
         if [[ "${{ inputs.channel }}" == "pre-release" ]]; then
           echo "DOCKER_IMAGE=callstackai/cal-staging:${{ inputs.tag }}" >> $GITHUB_ENV
