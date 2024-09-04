@@ -17,6 +17,14 @@ inputs:
   export:
     description: 'Save logs to artifact'
     required: false
+  channel:
+    description: 'Deployment channel (stable or pre-release)'
+    required: false
+    default: 'stable'
+  tag:
+    description: 'Docker image tag'
+    required: false
+    default: 'latest'
 
 runs:
   using: composite
@@ -26,13 +34,20 @@ runs:
       with:
         ref: ${{ inputs.head }}
 
+    - name: Set Docker image based on channel and tag
+      run: |
+        if [[ "${{ inputs.channel }}" == "pre-release" ]]; then
+          echo "DOCKER_IMAGE=callstackai/cal-staging:${{ inputs.tag }}" >> $GITHUB_ENV
+        else
+          echo "DOCKER_IMAGE=callstackai/cal:${{ inputs.tag }}" >> $GITHUB_ENV
+
     - name: Run reviewer without export
       if: ${{ !inputs.export }}
       uses: addnab/docker-run-action@v3
       env:
         OPENAI_KEY: ${{ inputs.openai_key }}
       with:
-        image: callstackai/cal:latest
+        image: ${{ env.IMAGE }}
         options: -v ${{ github.workspace }}:/code
         run: |
           /reviewer \
@@ -47,7 +62,7 @@ runs:
       env:
         OPENAI_KEY: ${{ inputs.openai_key }}
       with:
-        image: callstackai/cal:latest
+        image: ${{ env.IMAGE }}
         options: -v ${{ github.workspace }}:/code
         run: |
           /reviewer \
