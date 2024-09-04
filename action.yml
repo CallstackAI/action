@@ -41,6 +41,7 @@ runs:
           echo "DOCKER_IMAGE=callstackai/cal-staging:${{ inputs.tag }}" >> $GITHUB_ENV
         else
           echo "DOCKER_IMAGE=callstackai/cal:${{ inputs.tag }}" >> $GITHUB_ENV
+        fi
 
     - name: Run reviewer without export
       if: ${{ !inputs.export }}
