@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Review PR
-        uses: callstackai/action@main
+        uses: callstackai/action@v1
         with:
           config: ${{ inputs.config }}
           head: ${{ inputs.head }}
