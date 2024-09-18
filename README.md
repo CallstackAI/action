@@ -48,6 +48,12 @@ You can configure reviewer by adding `.callstack.yml` config file to the main br
 pr_review:
   # Default: true
   auto_run: true
+
+  # Exclude files or folders from review. Follows .gitignore syntax.
+  exclude: |
+    - package-lock.json
+    - go.mod
+    - go.sum
   modules:
     # Automatically create a description summarizing the changes in pull request. 
     description:
